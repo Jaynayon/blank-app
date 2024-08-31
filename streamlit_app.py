@@ -41,15 +41,15 @@ def imageCol():
             url="https://github.com/Jaynayon/nayon-autobiography",
             )
         
-        with st.spinner('Wait for it...'):
-            time.sleep(5)
-            # st.toast('Accessing C drive...')
-            # time.sleep(.5)
-            # st.toast('Deleting System32 folder...')
-            # time.sleep(.5)
-            # st.toast('Hooray!', icon='🎉')
-            # st.snow()
-        st.success("Done!")
+        # with st.spinner('Wait for it...'):
+        #     time.sleep(5)
+        #     # st.toast('Accessing C drive...')
+        #     # time.sleep(.5)
+        #     # st.toast('Deleting System32 folder...')
+        #     # time.sleep(.5)
+        #     # st.toast('Hooray!', icon='🎉')
+        #     # st.snow()
+        # st.success("Done!")
 
 def headerExample():
     colored_header(
@@ -69,80 +69,130 @@ def stateButton():
 
 # st.sidebar.markdown("Hi!")
 
+# Title/Welcome Container
 with st.container():         
     imageCol()
 
+# Autobiography Container
 with stylable_container(
-        key="container_gray",
+        key="container_autobiography",
         css_styles="""
             {
-                background-color: #f2f2f2;
+                // background-color: #f2f2f2;
                 border-radius: 0.5rem;
                 padding: calc(1em - 1px)
             }
             """,
-    ):   
-        st.title("🤖 My Autobiography")
+    ):
+        with st.container():
+            st.title("🤖 My Autobiography")
 
-        with stylable_container(
-                key="container_white",
-                css_styles="""
-                    {
-                        background-color: #ffffff;
-                        border-radius: 0.5rem;
-                        padding: calc(1em - 1px)
-                    }
-                    """,
-            ): 
-                with st.container():
-                    # Add a header
-                    st.header("About Me")
-                    # Display text with a placeholder for the button
-                    st.write("""
-                    Hello! My name is Jay D. Nayon Jr., and I am 21 years old. 
-                    I am currently working as a full time professional learner. 
-                    I have a passion for walking, gaslighting (telling myself everything is going to be alright), 
-                    and enjoy spending my free time sleeping and thinking about my next meal.
-                    """)
+            aboutMeCol1, aboutMeCol2 = st.columns(2)
+            educationCol1, educationCol2 = st.columns(2)
+            earlyLifeCol1, earlyLifeCol2 = st.columns(2)
+            careerCol1, careerCol2 = st.columns(2)
 
-                    with st.expander(label="Love of my life", expanded=True):
-                        st.write("test")
+            with aboutMeCol1:
+                with stylable_container(
+                        key="container_black",
+                        css_styles="""
+                            {
+                                background-color: #000;
+                                border-radius: 0.5rem;
+                                padding: calc(1em - 1px);
+                                color: #ffffff;
+                            }
+                            """,
+                    ): 
+                        with st.container():
+                            # Add a header
+                            st.header("About Me")
+                            # Display text with a placeholder for the button
+                            st.write("""
+                            Hello! My name is Jay D. Nayon Jr., and I am 21 years old. 
+                            I am currently working as a full time professional learner. 
+                            I have a passion for walking, gaslighting (telling myself everything is going to be alright), 
+                            and enjoy spending my free time sleeping and thinking about my next meal.
+                            """)
+
+                            with st.expander(label="Love of my life"):
+                                st.write("My family hahahah")
+
+                with aboutMeCol2:
+                    st.write("test")
+                
+            with educationCol1:
+                st.write("test")
+
+            with educationCol2:
+                with stylable_container(
+                        key="container_black",
+                        css_styles="""
+                            {
+                                background-color: #000;
+                                border-radius: 0.5rem;
+                                padding: calc(1em - 1px);
+                                color: #ffffff;
+                            }
+                            """,
+                    ): 
+                        # Add a section for education
+                        st.header("Education")
+
+                        st.write("""
+                        I completed my education at [Your School/University], where I studied [Your Major/Field of Study]. 
+                        During my time there, I was involved in [Your Activities/Clubs], which helped me develop skills in [Your Skills].
+                        """)
             
-        with stylable_container(
-            key="container_white",
-            css_styles="""
-                    {
-                        background-color: #ffffff;
-                        border-radius: 0.5rem;
-                        padding: calc(1em - 1px)
-                    }
-                    """,
-        ): 
-            with st.container():
-                # Add another section
-                st.header("Early Life")
+            with earlyLifeCol1:
+                with stylable_container(
+                        key="container_black",
+                        css_styles="""
+                            {
+                                background-color: #000;
+                                border-radius: 0.5rem;
+                                padding: calc(1em - 1px);
+                                color: #ffffff;
+                            }
+                            """,
+                    ): 
+                        # Add another section
+                        st.header("Early Life")
 
-                st.write("""
-                I was born in [Your Birthplace], where I grew up and attended school. 
-                My childhood was filled with [Your Childhood Activities], and I learned the importance of [Your Values].
-                """)
+                        st.write("""
+                        I was born in [Your Birthplace], where I grew up and attended school. 
+                        My childhood was filled with [Your Childhood Activities], and I learned the importance of [Your Values].
+                        """)
 
-# Add a section for education
-st.header("Education")
+            with earlyLifeCol2:
+                st.write("test")
 
-st.write("""
-I completed my education at [Your School/University], where I studied [Your Major/Field of Study]. 
-During my time there, I was involved in [Your Activities/Clubs], which helped me develop skills in [Your Skills].
-""")
+            with careerCol1:
+                st.write("test")
+            
+            with careerCol2:
+                with stylable_container(
+                        key="container_black",
+                        css_styles="""
+                            {
+                                background-color: #000;
+                                border-radius: 0.5rem;
+                                padding: calc(1em - 1px);
+                                color: #ffffff;
+                            }
+                            """,
+                    ): 
+                        # Add a section for career
+                        st.header("Career")
 
-# Add a section for career
-st.header("Career")
+                        st.write("""
+                        After graduating, I began my career at [Your First Job] as a [Your First Job Title]. 
+                        Over the years, I have worked in various roles such as [Your Previous Roles], gaining experience in [Your Skills/Experience]. 
+                        Currently, I am focused on [Your Current Work Focus] and am excited about the opportunities ahead.
+                        """)
 
-st.write("""
-After graduating, I began my career at [Your First Job] as a [Your First Job Title]. 
-Over the years, I have worked in various roles such as [Your Previous Roles], gaining experience in [Your Skills/Experience]. 
-Currently, I am focused on [Your Current Work Focus] and am excited about the opportunities ahead.
-""")
+
+
 
 # Add a section for hobbies and interests
 st.header("Hobbies and Interests")
