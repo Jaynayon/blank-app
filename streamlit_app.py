@@ -44,19 +44,19 @@ def imageCol():
         
         annotated_text(
             ("Strive", "verb", "#8ef"),
-            "to find ",
+            " to find ",
             ("your","adj","#faa"),
             ("voice","noun","#afa"),
             ", and the ",
             ("longer","adj","#faa"),
             " you ",
             ("wait","verb", "#8ef"),
-            " to begin, the less",
+            " to begin, the less ",
             ("likely","adj","#faa"),
             "you are to ",
             ("find","verb", "#8ef"),
             ("it","pronoun", "#fea"),
-            "at all."
+            " at all."
         )
 
         with st.spinner('Wait for it...'):
@@ -232,79 +232,90 @@ with stylable_container(
                             simply take off my polo and head to my part-time job at Caltex🧢.
                             """)
 
+# Portfolio Container
+with stylable_container(
+        key="container_portfolio",
+        css_styles="""
+            {
+                background-color: #f2f2f2;
+                border-radius: 0.5rem;
+                padding: calc(1em - 1px)
+            }
+            """,
+    ):
+        with st.container():
+            st.title("🕶️ My Portfolio")
+            
+            col1, col2, col3 = st.columns(3)
 
+            with col1:
+                 with stylable_container(
+                    key="container_white",
+                    css_styles="""
+                        {
+                            background-color: #ffffff;
+                            border-radius: 0.5rem;
+                            padding: calc(1em - 1px)
+                        }
+                        """,
+                ):
+                    with st.container():
+                        # Add a section for career
+                        colored_header(
+                            label="High School",
+                            description="Tisa National High School - F.Llamas St., Tisa, Cebu City",
+                            color_name="blue-green-70",
+                        )
+                        st.write("• Awarded as Best Reporter in Sports News")
+                        st.write("• District Schools Press Conference (DSPC) Sports radio broadcaster participant")
+                        st.write("• 1st Runner-Up, English Month Love Duet")
+        
+            with col2:
+                    with stylable_container(
+                        key="container_white",
+                        css_styles="""
+                            {
+                                background-color: #ffffff;
+                                border-radius: 0.5rem;
+                                padding: calc(1em - 1px)
+                            }
+                            """,
+                    ):
+                        with st.container():
+                            # Add a section for career
+                            colored_header(
+                                label="Senior High School",
+                                description="Tisa National High School - F.Llamas St., Tisa, Cebu City",
+                                color_name="blue-green-70",
+                            )
+                            st.write("• Majored in Computer System Servicing as an ICT student")
+                            st.write("• Awarded Mr. Senior High 2019-2020 at Tisa National High School")
+                            st.write("• Graduated with High Honors")
+                            st.write("• Awareded Best in ICT")
+                            st.write("• Awarded in Best in Communications Arts (English)")
+                            st.write("• Computer System Servicing NC II Passer")
+                            st.write("• Elected as SSG Grade 11 & 12 Representative")
 
-
-# Add a section for hobbies and interests
-st.header("Hobbies and Interests")
-
-st.write("""
-Outside of work, I enjoy [Your Hobbies/Interests]. 
-I believe in maintaining a healthy work-life balance and strive to keep myself engaged in activities that bring me joy.
-""")
-
-# Add a section for future goals
-st.header("Future Goals")
-
-st.write("""
-Looking ahead, I aim to [Your Future Goals]. 
-I am motivated to continue growing personally and professionally, and I am eager to see where my journey takes me.
-""")
-
-# Footer with contact information
-st.header("Contact Information")
-
-st.write("""
-Feel free to reach out to me via email at [Your Email Address].
-You can also find me on [Your Social Media Links].
-""")
-
-def example():
-    random_df = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-
-    my_grid = grid(2, [2, 4, 1], 1, 4, vertical_align="bottom")
-
-    # Row 1:
-    my_grid.dataframe(random_df, use_container_width=True)
-    my_grid.line_chart(random_df, use_container_width=True)
-    # Row 2:
-    my_grid.selectbox("Select Country", ["Germany", "Italy", "Japan", "USA"])
-    my_grid.text_input("Your name")
-    my_grid.button("Send", use_container_width=True)
-    # Row 3:
-    my_grid.text_area("Your message", height=40)
-    # Row 4:
-    my_grid.button("Example 1", use_container_width=True)
-    my_grid.button("Example 2", use_container_width=True)
-    my_grid.button("Example 3", use_container_width=True)
-    my_grid.button("Example 4", use_container_width=True)
-    # Row 5 (uses the spec from row 1):
-    with my_grid.expander("Show Filters", expanded=True):
-        st.slider("Filter by Age", 0, 100, 50)
-        st.slider("Filter by Height", 0.0, 2.0, 1.0)
-        st.slider("Filter by Weight", 0.0, 100.0, 50.0)
-    my_grid.dataframe(random_df, use_container_width=True)
-
-def example2():
-    random_df = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-
-    # Create 2 columns using Streamlit's built-in layout
-    col1, col2 = st.columns(2)
-
-    # Add content to the first column
-    with col1:
-        st.dataframe(random_df, use_container_width=True)
-    
-    # Add content to the second column
-    with col2:
-        st.write("""
-        Feel free to reach out to me via email at [Your Email Address].
-        You can also find me on [Your Social Media Links].
-        """)
-        st.write("""
-        Feel free to reach out to me via email at [Your Email Address].
-        You can also find me on [Your Social Media Links].
-        """)
-
-# Call the function to render the layout
-example2()
+            with col3:
+                with stylable_container(
+                key="container_white",
+                css_styles="""
+                    {
+                        background-color: #ffffff;
+                        border-radius: 0.5rem;
+                        padding: calc(1em - 1px)
+                    }
+                    """,
+                ):
+                    with st.container():
+                        # Add a section for career
+                        colored_header(
+                            label="College",
+                            description="Cebu Institute of Technology - University - Natalio B. Bacalso Ave, Cebu City",
+                            color_name="blue-green-70",
+                        )
+                        st.write("Team Wildcats - CIT University")
+                        st.write("Huawei ICT Competition 2022-2023, Asia-Pacific-Philippines, Network Track Category")
+                        st.write("• Successfully advanced to the laboratory exam phase, placing among the top 9 teams ",
+                                 "out of 60 participants from leading universities in the Philippines.")
+                        st.write("• Team members: Mariel Genodiala, Earl Joseph Claro, Jay Nayon, Jr.")
