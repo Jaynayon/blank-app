@@ -53,7 +53,7 @@ def imageCol():
             ("wait","verb", "#8ef"),
             " to begin, the less ",
             ("likely","adj","#faa"),
-            "you are to ",
+            " you are to ",
             ("find","verb", "#8ef"),
             ("it","pronoun", "#fea"),
             " at all."
@@ -142,10 +142,10 @@ with stylable_container(
                                 st.write("My fam, girl, bed hahahah")
 
                 with aboutMeCol2:
-                    st.write("test")
+                    st.write("")
                 
             with educationCol1:
-                st.write("test")
+                st.write("")
 
             with educationCol2:
                 with stylable_container(
@@ -201,10 +201,10 @@ with stylable_container(
                             """)
 
             with earlyLifeCol2:
-                st.write("test")
+                st.write("")
 
             with careerCol1:
-                st.write("test")
+                st.write("")
             
             with careerCol2:
                 with stylable_container(
