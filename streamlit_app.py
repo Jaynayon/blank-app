@@ -7,6 +7,7 @@ from streamlit_extras.colored_header import colored_header
 from streamlit_extras.mention import mention
 from streamlit_extras.badges import badge
 from streamlit_extras.stylable_container import stylable_container
+from annotated_text import annotated_text
 
  # Page config
 st.set_page_config(
@@ -41,15 +42,32 @@ def imageCol():
             url="https://github.com/Jaynayon/nayon-autobiography",
             )
         
-        # with st.spinner('Wait for it...'):
-        #     time.sleep(5)
-        #     # st.toast('Accessing C drive...')
-        #     # time.sleep(.5)
-        #     # st.toast('Deleting System32 folder...')
-        #     # time.sleep(.5)
-        #     # st.toast('Hooray!', icon='🎉')
-        #     # st.snow()
-        # st.success("Done!")
+        annotated_text(
+            ("Strive", "verb", "#8ef"),
+            "to find ",
+            ("your","adj","#faa"),
+            ("voice","noun","#afa"),
+            ", and the ",
+            ("longer","adj","#faa"),
+            " you ",
+            ("wait","verb", "#8ef"),
+            " to begin, the less",
+            ("likely","adj","#faa"),
+            "you are to ",
+            ("find","verb", "#8ef"),
+            ("it","pronoun", "#fea"),
+            "at all."
+        )
+
+        with st.spinner('Wait for it...'):
+            time.sleep(5)
+            # st.toast('Accessing C drive...')
+            # time.sleep(.5)
+            # st.toast('Deleting System32 folder...')
+            # time.sleep(.5)
+            # st.toast('Hooray!', icon='🎉')
+            # st.snow()
+        st.success("Done!")
 
 def headerExample():
     colored_header(
@@ -106,17 +124,22 @@ with stylable_container(
                     ): 
                         with st.container():
                             # Add a header
-                            st.header("About Me")
+                            # st.header("About Me")
+                            colored_header(
+                                label="About me",
+                                description="",
+                                color_name="violet-70",
+                            )
                             # Display text with a placeholder for the button
                             st.write("""
                             Hello! My name is Jay D. Nayon Jr., and I am 21 years old. 
-                            I am currently working as a full time professional learner. 
+                            I am currently working as a full time professional learner🧢. 
                             I have a passion for walking, gaslighting (telling myself everything is going to be alright), 
                             and enjoy spending my free time sleeping and thinking about my next meal.
                             """)
 
                             with st.expander(label="Love of my life"):
-                                st.write("My family hahahah")
+                                st.write("My fam, girl, bed hahahah")
 
                 with aboutMeCol2:
                     st.write("test")
@@ -136,13 +159,20 @@ with stylable_container(
                             }
                             """,
                     ): 
-                        # Add a section for education
-                        st.header("Education")
+                        with st.container():
+                            # Add a section for education
+                            colored_header(
+                                label="Education",
+                                description="",
+                                color_name="orange-70",
+                            )
 
-                        st.write("""
-                        I completed my education at [Your School/University], where I studied [Your Major/Field of Study]. 
-                        During my time there, I was involved in [Your Activities/Clubs], which helped me develop skills in [Your Skills].
-                        """)
+                            st.write("""
+                            I completed my elementary education at Tisa I and my high school education at Tisa II. 
+                            During high school, I was involved in the Supreme Student Government as a year representative, 
+                            served as an occasional emcee, and participated as a professional🧢 back-up dancer and singer, 
+                            as well as an amateur journalist and radio broadcaster. And somehow, I still pursued IT.
+                            """)
             
             with earlyLifeCol1:
                 with stylable_container(
@@ -156,13 +186,19 @@ with stylable_container(
                             }
                             """,
                     ): 
-                        # Add another section
-                        st.header("Early Life")
+                        with st.container():
+                            # Add another section
+                            colored_header(
+                                label="Early Life",
+                                description="",
+                                color_name="light-blue-70",
+                            )
 
-                        st.write("""
-                        I was born in [Your Birthplace], where I grew up and attended school. 
-                        My childhood was filled with [Your Childhood Activities], and I learned the importance of [Your Values].
-                        """)
+                            st.write("""
+                            I was born in Cebu, Philippines, where I grew up and attended school. 
+                            My childhood was awesome! I climbed trees, ate rocks, spiders, and 
+                            went through rivers in the name of adventure.
+                            """)
 
             with earlyLifeCol2:
                 st.write("test")
@@ -182,14 +218,19 @@ with stylable_container(
                             }
                             """,
                     ): 
-                        # Add a section for career
-                        st.header("Career")
+                        with st.container():
+                            # Add a section for career
+                            colored_header(
+                                label="Career",
+                                description="",
+                                color_name="blue-green-70",
+                            )
 
-                        st.write("""
-                        After graduating, I began my career at [Your First Job] as a [Your First Job Title]. 
-                        Over the years, I have worked in various roles such as [Your Previous Roles], gaining experience in [Your Skills/Experience]. 
-                        Currently, I am focused on [Your Current Work Focus] and am excited about the opportunities ahead.
-                        """)
+                            st.write("""
+                            After graduating High School, I began my career as a professional learner 
+                            in Cebu Institute of Technology - University (CIT-U). After classes, I would 
+                            simply take off my polo and head to my part-time job at Caltex🧢.
+                            """)
 
 
 
