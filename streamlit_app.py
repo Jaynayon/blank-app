@@ -106,8 +106,23 @@ def imageCol():
             # time.sleep(.5)
             # st.toast('Hooray!', icon='🎉')
             # st.snow()
-        st.sidebar.markdown("Hi!")
+        # sideBar()
         st.success("Done!")
+
+def sideBar():
+    with st.sidebar:
+        st.image("./assets/logo-transparent-fitted.png", use_column_width=True)
+        
+        # Handle redirection after the button is clicked
+        if st.button('Career'):
+            st.write(
+                """
+                <script>
+                window.location.href = '#career';
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
 
 def headerExample():
     colored_header(
