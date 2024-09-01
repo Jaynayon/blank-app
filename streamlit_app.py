@@ -10,8 +10,6 @@ from typing import Literal
 import streamlit as st
 
 # Replicate streamlit_extras colored header: add color header feature.
-_SUPPORTED_COLORS = ["light-blue-70", "orange-70", "blue-green-70", "blue-70", "violet-70", "red-70", "green-70", "yellow-80"]
-
 def colored_header(
     label: str = "Nice title",
     description: str = "Cool description",
@@ -167,8 +165,7 @@ with stylable_container(
 
             aboutMeCol1, aboutMeCol2 = st.columns(2)
             educationCol1, educationCol2 = st.columns(2)
-            earlyLifeCol1, earlyLifeCol2 = st.columns(2)
-            careerCol1, careerCol2 = st.columns(2)
+            earlyLifeCol, careerCol = st.columns(2)
 
             with aboutMeCol1:
                 with stylable_container(
@@ -200,13 +197,44 @@ with stylable_container(
                             """)
 
                             with st.expander(label="Love of my life"):
-                                st.write("My fam, girl, bed hahahah")
+                                st.write("My fam, girl, Jesus, bed hahahah")
+                            with st.expander(label="Why am I doing this?"):
+                                st.write("To compensate with the line graph's font and dimensions")
+                            with st.expander(label="Do I have a lot of time?"):
+                                st.write("Yes and No, it's just time is fleeting when I enjoy what I'm doing.")
 
                 with aboutMeCol2:
-                    st.write("")
+                    with st.container():
+                        # Simulate data where "messing around" leads to "finding out"
+                        data_points = 20
+                        messing_around = np.linspace(0, 10, data_points)
+                        finding_out = messing_around ** 2  # A quadratic relationship to indicate more finding out
+
+                        # Create a DataFrame
+                        chart_data = pd.DataFrame({
+                            "Messing Around": messing_around,
+                            "Finding Out": finding_out
+                        })
+
+                        # Create the line chart
+                        st.line_chart(chart_data.set_index("Messing Around"), height=200, use_container_width=True)
+
+                        # Add titles to the chart
+                        st.write("# My life's representation: The More I Mess Around, The More I Find Out😞")
                 
             with educationCol1:
-                st.write("")
+                with st.container(height=250):
+                    # Assuming these coordinates are valid
+                    longitude = 123.8693655171926
+                    latitude = 10.300895028340864
+
+                    # Create a DataFrame with the coordinate
+                    data = pd.DataFrame({
+                        'latitude': [latitude],
+                        'longitude': [longitude]
+                    })
+
+                    st.map(data,zoom=12)
 
             with educationCol2:
                 with stylable_container(
@@ -236,7 +264,7 @@ with stylable_container(
                             as well as an amateur journalist and radio broadcaster. And somehow, I still pursued IT.
                             """)
             
-            with earlyLifeCol1:
+            with earlyLifeCol:
                 with stylable_container(
                         key="container_black",
                         css_styles="""
@@ -262,14 +290,8 @@ with stylable_container(
                             My childhood was awesome! I climbed trees, ate rocks, spiders, and 
                             went through rivers in the name of adventure.
                             """)
-
-            with earlyLifeCol2:
-                st.write("")
-
-            with careerCol1:
-                st.write("")
             
-            with careerCol2:
+            with careerCol:
                 with stylable_container(
                         key="container_black",
                         css_styles="""
