@@ -2,19 +2,58 @@ import time
 import streamlit as st
 import pandas as pd
 import numpy as np
-from streamlit_extras.grid import grid
-from streamlit_extras.colored_header import colored_header
 from streamlit_extras.mention import mention
 from streamlit_extras.badges import badge
 from streamlit_extras.stylable_container import stylable_container
 from annotated_text import annotated_text
+from typing import Literal
+import streamlit as st
 
- # Page config
-st.set_page_config(
-    page_title="Jay Nayon",
-    page_icon="./assets/web-icon-white.png",
-    layout="wide",
-)
+# Replicate streamlit_extras colored header: add color header feature.
+_SUPPORTED_COLORS = ["light-blue-70", "orange-70", "blue-green-70", "blue-70", "violet-70", "red-70", "green-70", "yellow-80"]
+
+def colored_header(
+    label: str = "Nice title",
+    description: str = "Cool description",
+    color_name: str = "red-70",
+    header_color: str = "#31333f"
+):
+    """
+    Shows a header with a colored underline and an optional description.
+
+    Args:
+        label (str, optional): Header label. Defaults to "Nice title".
+        description (str, optional): Description shown under the header. Defaults to "Cool description".
+        color_name (str, optional): Color of the underline. Defaults to "red-70".
+    """
+    if color_name is None:
+        color_name = next(HEADER_COLOR_CYCLE)  # Ensure HEADER_COLOR_CYCLE is defined elsewhere
+
+    st.write(
+        f'<h3 style="color: {header_color}; margin-top: 0; margin-bottom: 0;">{label}</h2>',
+        unsafe_allow_html=True,
+    )
+    st.write(
+        f'<hr style="background-color: {color(color_name)}; margin-top: 0;'
+        ' margin-bottom: 0; height: 3px; border: none; border-radius: 3px;">',
+        unsafe_allow_html=True,
+    )
+    if description:
+        st.caption(description)
+
+def color(color_name: str) -> str:
+    """Converts a color name to its corresponding CSS color code."""
+    color_map = {
+        "light-blue-70": "#00c0f2",
+        "orange-70": "#ffa421",
+        "blue-green-70": "#00d4b1",
+        "blue-70": "#1c83e1",
+        "violet-70": "#803df5",
+        "red-70": "#ff4b4b",
+        "green-70": "#21c354",
+        "yellow-80": "#faca2b",
+    }
+    return color_map.get(color_name, "#000000")  # Default to black if color_name is not found
 
 def imageCol():
     # Create 2 columns using Streamlit's built-in layout
@@ -67,6 +106,7 @@ def imageCol():
             # time.sleep(.5)
             # st.toast('Hooray!', icon='🎉')
             # st.snow()
+        st.sidebar.markdown("Hi!")
         st.success("Done!")
 
 def headerExample():
@@ -85,7 +125,12 @@ def stateButton():
     if st.button("Just give me the answer"):
         st.session_state.reveal_age = "Pressed!" if st.session_state.reveal_age == "Reset" else "Reset"
 
-# st.sidebar.markdown("Hi!")
+ # Page config
+st.set_page_config(
+    page_title="Jay Nayon",
+    page_icon="./assets/web-icon-white.png",
+    layout="wide",
+)
 
 # Title/Welcome Container
 with st.container():         
@@ -129,6 +174,7 @@ with stylable_container(
                                 label="About me",
                                 description="",
                                 color_name="violet-70",
+                                header_color="white"
                             )
                             # Display text with a placeholder for the button
                             st.write("""
@@ -165,6 +211,7 @@ with stylable_container(
                                 label="Education",
                                 description="",
                                 color_name="orange-70",
+                                header_color="white"
                             )
 
                             st.write("""
@@ -192,6 +239,7 @@ with stylable_container(
                                 label="Early Life",
                                 description="",
                                 color_name="light-blue-70",
+                                header_color="white"
                             )
 
                             st.write("""
@@ -224,6 +272,7 @@ with stylable_container(
                                 label="Career",
                                 description="",
                                 color_name="blue-green-70",
+                                header_color="white"
                             )
 
                             st.write("""
@@ -264,7 +313,7 @@ with stylable_container(
                         colored_header(
                             label="High School",
                             description="Tisa National High School - F.Llamas St., Tisa, Cebu City",
-                            color_name="blue-green-70",
+                            color_name="green-70",
                         )
                         st.write("• Awarded as Best Reporter in Sports News")
                         st.write("• District Schools Press Conference (DSPC) Sports radio broadcaster participant")
@@ -286,7 +335,7 @@ with stylable_container(
                             colored_header(
                                 label="Senior High School",
                                 description="Tisa National High School - F.Llamas St., Tisa, Cebu City",
-                                color_name="blue-green-70",
+                                color_name="yellow-80",
                             )
                             st.write("• Majored in Computer System Servicing as an ICT student")
                             st.write("• Awarded Mr. Senior High 2019-2020 at Tisa National High School")
@@ -303,7 +352,7 @@ with stylable_container(
                     {
                         background-color: #ffffff;
                         border-radius: 0.5rem;
-                        padding: calc(1em - 1px)
+                        padding: calc(1em - 1px);
                     }
                     """,
                 ):
@@ -312,7 +361,6 @@ with stylable_container(
                         colored_header(
                             label="College",
                             description="Cebu Institute of Technology - University - Natalio B. Bacalso Ave, Cebu City",
-                            color_name="blue-green-70",
                         )
                         st.write("Team Wildcats - CIT University")
                         st.write("Huawei ICT Competition 2022-2023, Asia-Pacific-Philippines, Network Track Category")
