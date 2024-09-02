@@ -223,7 +223,7 @@ with stylable_container(
                         st.write("# My life's representation: The More I Mess Around, The More I Find Out😞")
                 
             with educationCol1:
-                with st.container(height=250):
+                with st.container():
                     # Assuming these coordinates are valid
                     longitude = 123.8693655171926
                     latitude = 10.300895028340864
@@ -234,7 +234,7 @@ with stylable_container(
                         'longitude': [longitude]
                     })
 
-                    st.map(data,zoom=12)
+                    st.map(data,zoom=12,use_container_width=True)
 
             with educationCol2:
                 with stylable_container(
@@ -263,8 +263,7 @@ with stylable_container(
                             served as an occasional emcee, and participated as a professional🧢 back-up dancer and singer, 
                             as well as an amateur journalist and radio broadcaster. And somehow, I still pursued IT.
                             """)
-            
-            with earlyLifeCol:
+
                 with stylable_container(
                         key="container_black",
                         css_styles="""
@@ -291,7 +290,7 @@ with stylable_container(
                             went through rivers in the name of adventure.
                             """)
             
-            with careerCol:
+            with earlyLifeCol:
                 with stylable_container(
                         key="container_black",
                         css_styles="""
@@ -304,9 +303,9 @@ with stylable_container(
                             """,
                     ): 
                         with st.container():
-                            # Add a section for career
+                             # Add a section for career
                             colored_header(
-                                label="Career",
+                                label="Career🧢",
                                 description="",
                                 color_name="blue-green-70",
                                 header_color="white"
@@ -317,6 +316,28 @@ with stylable_container(
                             in Cebu Institute of Technology - University (CIT-U). After classes, I would 
                             simply take off my polo and head to my part-time job at Caltex🧢.
                             """)
+            
+            with careerCol:
+                with st.container():
+                    # Custom CSS to adjust the font size
+                    st.markdown(
+                        """
+                        <style>
+                        .emoji-container {
+                            display: flex;
+                            justify-content: center;
+                            width: 100%;
+                        }
+                        .emoji {
+                            font-size: 100px; /* Adjust this value to scale the emoji */
+                        }
+                        </style>
+                        """,
+                        unsafe_allow_html=True
+                    )
+                     # Use a container div with a class to apply the centering
+                    st.write('<div class="emoji-container"><span class="emoji">🧢🧢🧢</span></div>', unsafe_allow_html=True)
+                            
 
 # Portfolio Container
 with stylable_container(
@@ -377,7 +398,7 @@ with stylable_container(
                             st.write("• Majored in Computer System Servicing as an ICT student")
                             st.write("• Awarded Mr. Senior High 2019-2020 at Tisa National High School")
                             st.write("• Graduated with High Honors")
-                            st.write("• Awareded Best in ICT")
+                            st.write("• Awarded Best in ICT")
                             st.write("• Awarded in Best in Communications Arts (English)")
                             st.write("• Computer System Servicing NC II Passer")
                             st.write("• Elected as SSG Grade 11 & 12 Representative")
